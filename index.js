@@ -1,0 +1,18 @@
+document.getElementById("app").innerHTML = `
+<h1>Hello Vanilla!</h1>
+<div>
+  We use Parcel to bundle this sandbox, you can find more info about Parcel
+  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+</div>
+`;
+const div = document.querySelector('div');
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response => response.json())
+  .then(json =>
+    json.forEach(element => {
+        const p = document.createElement('p');
+        p.innerHTML = element.name;
+        div.appendChild(p);
+      console.log(element.name);
+    })
+  ); 
